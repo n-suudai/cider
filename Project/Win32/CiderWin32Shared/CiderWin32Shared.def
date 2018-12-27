@@ -1,0 +1,3 @@
+LIBRARY CiderWin32Dll
+EXPORTS
+    Cider_Hello @1
