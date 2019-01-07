@@ -10,23 +10,23 @@
     <Filter Include="source\Win32">
       <UniqueIdentifier>{0ffa632c-a458-4344-8709-bbf81d0beafe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\Graphics">
+      <UniqueIdentifier>{dbb6e3e3-252a-4003-ad67-95eae7b16677}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Cider_Win32.cpp">
-      <Filter>source\Win32</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\CiderShared.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Log_Win32.cpp">
       <Filter>source\Win32</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Cider.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Cider.hpp">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\CiderShared.hpp">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Win32Prerequisites.hpp" />
@@ -38,6 +38,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Api.hpp">
       <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="I:\GitHub\cider\Project\Win32\CiderWin32\..\..\..\Cider\include\CiderShared.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="I:\GitHub\cider\Project\Win32\CiderWin32\..\..\..\Cider\include\Graphics.hpp">
+      <Filter>include\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
