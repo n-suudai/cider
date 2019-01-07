@@ -1,5 +1,4 @@
 ﻿
-
 #include "Cider.hpp"
 #pragma comment(lib, "CiderWin32Static.lib")
 

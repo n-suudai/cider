@@ -5,9 +5,10 @@
 namespace Cider {
 
 
-void CIDER_APIENTRY Hello()
+Void CIDER_APIENTRY Hello()
 {
-    OutputDebugStringA(
+    Log::Message(
+        Log::Level::Verbose,
         "-------------------------------------\n"
         "            Hello, Cider!!\n"
         "-------------------------------------\n"

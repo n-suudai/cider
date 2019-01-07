@@ -14,11 +14,23 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Api.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Cider.hpp">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\CiderShared.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Log.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Types.hpp">
       <SubType>
       </SubType>
     </ClInclude>
@@ -33,5 +45,9 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Cider_Win32.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Log_Win32.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
 </Project>

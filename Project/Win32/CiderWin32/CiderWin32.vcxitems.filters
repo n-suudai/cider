@@ -18,6 +18,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\CiderShared.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Log_Win32.cpp">
+      <Filter>source\Win32</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Cider.hpp">
@@ -27,5 +30,14 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Win32Prerequisites.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Types.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Log.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Api.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

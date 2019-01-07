@@ -32,6 +32,13 @@ int APIENTRY _tWinMain(
             hello();
         }
 
+        auto log = reinterpret_cast<Cider_LogFormatProc>(::GetProcAddress(dll, "Cider_LogFormat"));
+
+        if (log != NULL)
+        {
+            log(CIDER_LOG_D, "%s", "Test");
+        }
+
         // DLLを解放
         ::FreeLibrary(dll);
     }

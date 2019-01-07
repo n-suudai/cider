@@ -1,3 +1,5 @@
 LIBRARY CiderWin32Dll
 EXPORTS
     Cider_Hello @1
+    Cider_LogFormat @2
+    Cider_LogMessage @3
