@@ -3,6 +3,7 @@
 #include "System/Memory.hpp"
 #include "System/StackTrace.hpp"
 #include "System/Log.hpp"
+#include "System/Assert.hpp"
 #include <ctime>
 #include <iomanip>
 
@@ -80,6 +81,9 @@ Bool MemorySpace::CreateMemorySpace(const Char* name, SizeT capacity)
     m_capacity = capacity;
     strcpy_s(m_name, name);
     m_mspace = create_mspace(capacity, 0);
+
+    CIDER_ASSERT(m_mspace != nullptr, "メモリ領域の作成に失敗しました。");
+
     return m_mspace != nullptr;
 }
 

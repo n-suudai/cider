@@ -1,6 +1,7 @@
 ﻿
 
 #include "System/StackTrace.hpp"
+#include "System/Log.hpp"
 
 #include <Windows.h>
 #include <dbghelp.h>
@@ -111,7 +112,7 @@ Void StackTrace::TraceInfo::Print()
 {
     if (line == -1)
     {
-        printf_s(
+        Log::Format(
             "0x%p @ %s @ %s + 0x%p\n",
             address,
             moduleName,
@@ -121,7 +122,7 @@ Void StackTrace::TraceInfo::Print()
     }
     else
     {
-        printf_s(
+        Log::Format(
             "0x%p @ %s @ %s @ %s(%d)\n",
             address,
             moduleName,

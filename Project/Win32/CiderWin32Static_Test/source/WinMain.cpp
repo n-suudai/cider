@@ -21,6 +21,8 @@ int APIENTRY _tWinMain(
 
     Cider::Hello();
 
+    CIDER_ASSERT(false, "強制失敗！！");
+
     return EXIT_SUCCESS;
 }
 

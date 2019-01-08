@@ -31,6 +31,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Api.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Assert.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Log.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Memory.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\StackTrace.hpp">
@@ -51,7 +55,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Assert.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Memory.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Win32\Assert_Win32.cpp">
       <SubType>
       </SubType>
     </ClCompile>

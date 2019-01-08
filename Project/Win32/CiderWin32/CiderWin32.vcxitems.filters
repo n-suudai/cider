@@ -42,6 +42,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Memory.cpp">
       <Filter>source\System</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Win32\Assert_Win32.cpp">
+      <Filter>source\System\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Assert.cpp">
+      <Filter>source\System</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Cider.hpp">
@@ -73,6 +79,9 @@
       <Filter>source\System\Win32</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\STL.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Assert.hpp">
       <Filter>include\System</Filter>
     </ClInclude>
   </ItemGroup>
