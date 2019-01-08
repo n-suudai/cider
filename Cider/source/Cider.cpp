@@ -6,12 +6,13 @@ namespace Cider {
 
 Void CIDER_APIENTRY Hello()
 {
-    Log::Message(
-        Log::Level::Verbose,
-        "-------------------------------------\n"
-        "            Hello, Cider!!\n"
-        "-------------------------------------\n"
-    );
+    Entity* pEntity = CIDER_NEW Entity();
+
+    Cider::System::MemoryManager::ReportLeaks(0);
+
+    CIDER_DELETE pEntity;
+
+    Cider::System::MemoryManager::ReportLeaks(0);
 }
 
 

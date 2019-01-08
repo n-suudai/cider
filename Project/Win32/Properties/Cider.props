@@ -20,8 +20,8 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <PreprocessorDefinitions Condition="'$(Configuration)' == 'Debug'">CIDER_BUILD_DEBUG;_DEBUG;CIDER_PLATFORM_WIN;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <PreprocessorDefinitions Condition="'$(Configuration)' == 'Release'">CIDER_BUILD_RELEASE;NDEBUG;CIDER_PLATFORM_WIN;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)' == 'Debug'">CIDER_BUILD_DEBUG;_DEBUG;CIDER_PLATFORM_WIN;_ITERATOR_DEBUG_LEVEL=0;USE_DL_PREFIX;MSPACES=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)' == 'Release'">CIDER_BUILD_RELEASE;NDEBUG;CIDER_PLATFORM_WIN;_ITERATOR_DEBUG_LEVEL=0;USE_DL_PREFIX;MSPACES=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

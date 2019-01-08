@@ -7,43 +7,73 @@
     <Filter Include="source">
       <UniqueIdentifier>{e74ca24b-945c-4c35-8235-35eac1c1e797}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\Win32">
-      <UniqueIdentifier>{0ffa632c-a458-4344-8709-bbf81d0beafe}</UniqueIdentifier>
-    </Filter>
     <Filter Include="include\Graphics">
       <UniqueIdentifier>{dbb6e3e3-252a-4003-ad67-95eae7b16677}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\System">
+      <UniqueIdentifier>{f1328578-049e-4664-b88d-90b708de675d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\External">
+      <UniqueIdentifier>{567119c5-a539-4e6f-bf7e-5f7e62c31002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\System">
+      <UniqueIdentifier>{743c9456-fa61-4d04-82d2-8df565ca8446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\System\Win32">
+      <UniqueIdentifier>{0ffa632c-a458-4344-8709-bbf81d0beafe}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\CiderShared.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Log_Win32.cpp">
-      <Filter>source\Win32</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Cider.cpp">
       <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\External\dlmalloc.cpp">
+      <Filter>source\External</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Win32\Log_Win32.cpp">
+      <Filter>source\System\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Win32\StackTrace_Win32.cpp">
+      <Filter>source\System\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Memory.cpp">
+      <Filter>source\System</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Cider.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Win32Prerequisites.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Types.hpp">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\CiderShared.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Graphics.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Log.hpp">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Memory.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\StackTrace.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Api.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Log.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Types.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Api.hpp">
-      <Filter>include</Filter>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Win32\Win32Prerequisites.hpp">
+      <Filter>source\System\Win32</Filter>
     </ClInclude>
-    <ClInclude Include="I:\GitHub\cider\Project\Win32\CiderWin32\..\..\..\Cider\include\CiderShared.hpp">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="I:\GitHub\cider\Project\Win32\CiderWin32\..\..\..\Cider\include\Graphics.hpp">
-      <Filter>include\Graphics</Filter>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\STL.hpp">
+      <Filter>include\System</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -14,10 +14,6 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Api.hpp">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Cider.hpp">
       <SubType>
       </SubType>
@@ -30,18 +26,20 @@
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Log.hpp">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System.hpp">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Types.hpp">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Api.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Log.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Memory.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\StackTrace.hpp">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Win32Prerequisites.hpp">
-      <SubType>
-      </SubType>
-    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\STL.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Types.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Win32\Win32Prerequisites.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Cider.cpp" />
@@ -49,7 +47,16 @@
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\Win32\Log_Win32.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\External\dlmalloc.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Memory.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Win32\Log_Win32.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\System\Win32\StackTrace_Win32.cpp">
       <SubType>
       </SubType>
     </ClCompile>

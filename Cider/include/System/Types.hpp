@@ -2,6 +2,7 @@
 #pragma once
 
 #include <cstdint>
+#include <cstddef>
 
 
 namespace Cider {
@@ -24,6 +25,10 @@ typedef wchar_t     WChar;
 
 typedef bool    Bool;
 typedef void    Void;
+
+typedef size_t SizeT;
+
+typedef std::ptrdiff_t PtrDiff;
 
 
 } // namespace Cider
