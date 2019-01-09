@@ -31,9 +31,6 @@ namespace System {
 #pragma init_seg(compiler)
 
 
-const SizeT        MemoryManager::DEFAULT_ALIGNMENT_SIZE = sizeof(UInt64);
-const SizeT        MemoryManager::MEMORY_TRAP_SIZE = sizeof(UInt32);
-const UInt32 MemoryManager::MEMORY_TRAP = 0xCDCDCDCD;
 std::mutex          MemoryManager::m_memoryLock;
 MemorySpace         MemoryManager::m_memorySpace[static_cast<Int32>(MEMORY_AREA::NUM)];
 std::mutex          MemoryManager::m_infoLock;
@@ -111,11 +108,27 @@ Void MemorySpace::Free(Void* memory)
 
 Bool MemoryManager::Initialize()
 {
-    m_memorySpace[static_cast<int>(MEMORY_AREA::UNKNOWN)].CreateMemorySpace("UNKNOWN", 1024);
-    m_memorySpace[static_cast<int>(MEMORY_AREA::DEBUG)].CreateMemorySpace("DEBUG", 1024);
-    m_memorySpace[static_cast<int>(MEMORY_AREA::STL)].CreateMemorySpace("STL", 1024);
-    m_memorySpace[static_cast<int>(MEMORY_AREA::SYSTEM)].CreateMemorySpace("SYSTEM", 1024);
-    m_memorySpace[static_cast<int>(MEMORY_AREA::APPLICATION)].CreateMemorySpace("APPLICATION", 1024);
+    constexpr SizeT KB = 1024;
+    constexpr SizeT MB = KB * 1024;
+    constexpr SizeT GB = MB * 1024;
+
+    struct {
+        const Char* name;
+        SizeT       capacity;
+    }
+    const initInfos[static_cast<Int32>(MEMORY_AREA::NUM)] = {
+        { "UNKNOWN",        512     },
+        { "DEBUG",          512     },
+        { "STL",            1  * KB },
+        { "SYSTEM",         10 * KB },
+        { "GRAPHICS",       10 * KB },
+        { "APPLICATION",    10 * KB },
+    };
+
+    for (Int32 i = 0; i < static_cast<Int32>(MEMORY_AREA::NUM); ++i)
+    {
+        m_memorySpace[i].CreateMemorySpace(initInfos[i].name, initInfos[i].capacity);
+    }
 
     m_initialized = true;
     return true;
@@ -123,7 +136,7 @@ Bool MemoryManager::Initialize()
 
 Void MemoryManager::Terminate()
 {
-    for (int i = 0; i < static_cast<int>(MEMORY_AREA::NUM); ++i)
+    for (int i = 0; i < static_cast<Int32>(MEMORY_AREA::NUM); ++i)
     {
         m_memorySpace[i].DestroyMemorySpace();
     }
@@ -173,7 +186,7 @@ Void* MemoryManager::Malloc(MEMORY_AREA area, SizeT bytes, SizeT alignment)
 
     std::lock_guard<std::mutex> lock(m_memoryLock);
 
-    return m_memorySpace[static_cast<int>(area)].Malloc(bytes, alignment);
+    return m_memorySpace[static_cast<Int32>(area)].Malloc(bytes, alignment);
 }
 
 Void MemoryManager::Free(MEMORY_AREA area, Void* memory)
@@ -193,7 +206,7 @@ Void MemoryManager::Free(MEMORY_AREA area, Void* memory)
     {
         std::lock_guard<std::mutex> lock(m_memoryLock);
 
-        m_memorySpace[static_cast<int>(area)].Free(memory);
+        m_memorySpace[static_cast<Int32>(area)].Free(memory);
     }
 
     m_instanceCount--;
@@ -381,7 +394,7 @@ Void MemoryManager::DebugInfo::PrintInfo(Bool newLine)
 
     UInt32* trap = (UInt32*)((PtrDiff)address + bytes);
 
-    static const Char* s_memoryAreaName[static_cast<int>(MEMORY_AREA::NUM)] = {
+    static const Char* s_memoryAreaName[static_cast<Int32>(MEMORY_AREA::NUM)] = {
         "UNKNOWN",
         "DEBUG",
         "STL",
@@ -403,7 +416,7 @@ Void MemoryManager::DebugInfo::PrintInfo(Bool newLine)
         "%s(%d) : { area=\"%s\" address=0x%p size=%zubyte time=%s backTraceHash=0x%016llX } [ %08X ]\n",
         file,
         line,
-        s_memoryAreaName[static_cast<int>(area)],
+        s_memoryAreaName[static_cast<Int32>(area)],
         address,
         bytes,
         dateBuffer,

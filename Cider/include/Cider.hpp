@@ -8,6 +8,11 @@
 namespace Cider {
 
 
+struct SystemObject : public System::BaseAllocator<System::MEMORY_AREA::SYSTEM, 16>
+{
+
+};
+
 class Entity : public System::BaseAllocator<System::MEMORY_AREA::APPLICATION>
 {
 public:

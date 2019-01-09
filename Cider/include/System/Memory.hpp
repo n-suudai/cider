@@ -19,6 +19,7 @@ enum class MEMORY_AREA
     DEBUG,
     STL,
     SYSTEM,
+    GRAPHICS,
     APPLICATION,
     NUM,
 };
@@ -94,10 +95,12 @@ private:
     static Void SetInfo(const DebugInfo& info);
 
 
+public:
+    static constexpr SizeT DEFAULT_ALIGNMENT_SIZE = sizeof(UInt64);
+
 private:
-    static const SizeT DEFAULT_ALIGNMENT_SIZE;
-    static const SizeT MEMORY_TRAP_SIZE;
-    static const UInt32 MEMORY_TRAP;
+    static constexpr SizeT MEMORY_TRAP_SIZE = sizeof(UInt32);
+    static constexpr UInt32 MEMORY_TRAP = 0xCDCDCDCD;
 
     static std::mutex  m_memoryLock;
     static MemorySpace m_memorySpace[static_cast<Int32>(MEMORY_AREA::NUM)];
@@ -112,10 +115,11 @@ private:
 };
 
 
-template<MEMORY_AREA AREA>
+template<MEMORY_AREA Area, SizeT AlignmentSize = MemoryManager::DEFAULT_ALIGNMENT_SIZE>
 struct BaseAllocator
 {
-    static constexpr MEMORY_AREA AREA_TYPE = AREA;
+    static constexpr MEMORY_AREA AREA_TYPE = Area;
+    static constexpr SizeT       ALIGNMENT_SIZE = AlignmentSize;
 
     BaseAllocator() = default;
 
@@ -123,12 +127,12 @@ struct BaseAllocator
 
     Void* operator new(SizeT bytes)
     {
-        return MemoryManager::MallocDebug(__FILE__, __LINE__, AREA_TYPE, bytes);
+        return MemoryManager::MallocDebug(__FILE__, __LINE__, AREA_TYPE, bytes, ALIGNMENT_SIZE);
     }
 
     Void* operator new(SizeT bytes, const Char* file, Int32 line)
     {
-        return MemoryManager::MallocDebug(file, line, AREA_TYPE, bytes);
+        return MemoryManager::MallocDebug(file, line, AREA_TYPE, bytes, ALIGNMENT_SIZE);
     }
 
     Void* operator new[](SizeT bytes)

@@ -43,8 +43,6 @@ Void AssertHandle(const Char* expression, const Char* message, const Char* file,
             "========================================\n"
         );
     }
-
-    BreakPoint();
 }
 
 
