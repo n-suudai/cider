@@ -83,6 +83,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\CiderShared.hpp">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\DebugBreak.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\DebugBreak.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

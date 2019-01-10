@@ -366,6 +366,8 @@ Void MemoryManager::SetInfo(const DebugInfo& info)
         }
         );
 
+        CIDER_ASSERT(it != m_memoryInfo.end(), "メモリデバッグ情報の保持数が限界です。");
+
         (*it) = info;
     }
 }

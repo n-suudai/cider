@@ -11,17 +11,8 @@
 
 /*
     課題
-    1. デバッグ情報を保持できる数が固定長である
-        → 可変個数保持できるようにしたい
-            〇 STLのアロケータをカスタムし、専用のメモリ領域から確保するようにする？ → 結局最大サイズは存在する
-            〇 最大サイズを超えた場合の処理を決めた方が良い？ → 確保しすぎとしてエラーにする？
-
-    2. メモリ領域に親子関係を付けられない (ヒープツリー)
+    1. メモリ領域に親子関係を付けられない (ヒープツリー)
         → MemorySpace クラスをツリー構造に対応する
-
-    3. 柔軟なチェックポイント機能が無い
-        → MemoryManager クラスにチェックポイントを切り替える機能を追加
-            〇 マルチスレッドには対応できない？ → チェックポイントが戻るまでロックしておく必要がある？ → 今まで通り確保回数でチェックで良い気がする...
 */
 
 
@@ -71,14 +62,14 @@ class MemoryManager
 public:
     struct DebugInfo
     {
-        Void*        address;
-        SizeT       bytes;
-        const Char*  file;
-        Int32 line;
-        MEMORY_AREA  area;
+        Void*           address;
+        SizeT           bytes;
+        const Char*     file;
+        Int32           line;
+        MEMORY_AREA     area;
         std::chrono::system_clock::time_point date;
-        UInt64 stackTraceHash;
-        UInt64 bookmark;
+        UInt64          stackTraceHash;
+        UInt64          bookmark;
 
         DebugInfo();
 

@@ -18,6 +18,9 @@ typedef std::uint16_t   UInt16;
 typedef std::uint32_t   UInt32;
 typedef std::uint64_t   UInt64;
 
+typedef float           Float;
+typedef double          Double;
+
 typedef char        Char;
 typedef char16_t    Char16;
 typedef char32_t    Char32;
