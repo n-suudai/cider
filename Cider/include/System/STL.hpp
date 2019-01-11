@@ -165,7 +165,7 @@ inline unique_ptr<T> make_unique(Arguments && ... arguments)
 {
     static detail::CustomDeleter<T> deleter = detail::CustomDeleter<T>();
 
-    return unique_ptr<T>(NEW T(std::forward<Arguments>(arguments)...), deleter);
+    return unique_ptr<T>(CIDER_NEW T(std::forward<Arguments>(arguments)...), deleter);
 }
 
 template<
@@ -178,7 +178,7 @@ inline unique_ptr<T> make_unique(SizeT size)
 
     static detail::CustomDeleter<T> deleter = detail::CustomDeleter<T>();
 
-    return (unique_ptr<T>(NEW Element[size](), deleter));
+    return (unique_ptr<T>(CIDER_NEW Element[size](), deleter));
 }
 
 template<typename T,

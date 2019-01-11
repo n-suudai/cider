@@ -22,6 +22,9 @@
     <Filter Include="source\System\Win32">
       <UniqueIdentifier>{0ffa632c-a458-4344-8709-bbf81d0beafe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\Graphics">
+      <UniqueIdentifier>{9ec66ec2-1ce0-499a-a0a8-b3f4da1d3e24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\CiderShared.cpp">
