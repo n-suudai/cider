@@ -19,7 +19,11 @@ int APIENTRY _tWinMain(
     UNREFERENCED_PARAMETER(lpCmdLine);
     UNREFERENCED_PARAMETER(nCmdShow);
 
-    Cider::Hello();
+    Cider::System::Signal<void()> signal;
+
+    signal.Connect(Cider::Hello);
+
+    signal();
 
     CIDER_ASSERT(false, "強制失敗！！");
 

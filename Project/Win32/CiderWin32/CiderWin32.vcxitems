@@ -39,8 +39,17 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Event.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\KeyCode.hpp">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Log.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Memory.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Signals.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\StackTrace.hpp">
       <SubType>
       </SubType>

@@ -148,11 +148,11 @@ template<
 using unique_ptr = std::unique_ptr<T, Deleter>;
 
 
-template<typename T, typename ... Arguments>
+// ※ T::AREA_TYPE が無い場合は、直接指定する
+template<typename T, System::MEMORY_AREA AREA = T::AREA_TYPE, typename ... Arguments>
 inline shared_ptr<T> make_shared(Arguments && ... arguments)
 {
-    // TODO : T::AREA_TYPEが存在するかチェックできる？
-    static StdAllocator<T, T::AREA_TYPE> allocator = StdAllocator<T, T::AREA_TYPE>();
+    static StdAllocator<T, AREA> allocator = StdAllocator<T, AREA>();
     return std::allocate_shared<T>(allocator, std::forward<Arguments>(arguments)...);
 }
 
@@ -163,7 +163,7 @@ template<
 >
 inline unique_ptr<T> make_unique(Arguments && ... arguments)
 {
-    static detail::CustomDeleter<T> deleter = detail::CustomDeleter<T>();
+    static Detail::CustomDeleter<T> deleter = Detail::CustomDeleter<T>();
 
     return unique_ptr<T>(CIDER_NEW T(std::forward<Arguments>(arguments)...), deleter);
 }
@@ -176,7 +176,7 @@ inline unique_ptr<T> make_unique(SizeT size)
 {
     typedef std::remove_extent_t<T> Element;
 
-    static detail::CustomDeleter<T> deleter = detail::CustomDeleter<T>();
+    static Detail::CustomDeleter<T> deleter = Detail::CustomDeleter<T>();
 
     return (unique_ptr<T>(CIDER_NEW Element[size](), deleter));
 }

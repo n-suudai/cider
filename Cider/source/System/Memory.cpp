@@ -401,6 +401,7 @@ Void MemoryManager::DebugInfo::PrintInfo(Bool newLine)
         "DEBUG",
         "STL",
         "SYSTEM",
+        "GRAPHICS",
         "APPLICATION",
     };
 

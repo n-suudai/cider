@@ -9,4 +9,5 @@
 #include "System/StackTrace.hpp"
 #include "System/Log.hpp"
 #include "System/STL.hpp"
+#include "System/Signals.hpp"
 

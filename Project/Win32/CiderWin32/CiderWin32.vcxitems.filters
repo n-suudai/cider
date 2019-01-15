@@ -89,5 +89,14 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\DebugBreak.hpp">
       <Filter>include\System</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Event.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\KeyCode.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Signals.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
