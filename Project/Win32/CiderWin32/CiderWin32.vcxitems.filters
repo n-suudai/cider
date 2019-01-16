@@ -25,6 +25,12 @@
     <Filter Include="source\Graphics">
       <UniqueIdentifier>{9ec66ec2-1ce0-499a-a0a8-b3f4da1d3e24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\Utility">
+      <UniqueIdentifier>{b0be9db8-4a2b-459b-a5d1-0d3f5f27e7a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\GUI">
+      <UniqueIdentifier>{6c2d04e0-eaee-445c-bcbb-8cfd72678cca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\CiderShared.cpp">
@@ -97,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\System\Signals.hpp">
       <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\GUI\Window.hpp">
+      <Filter>include\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
