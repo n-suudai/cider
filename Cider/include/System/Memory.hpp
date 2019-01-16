@@ -23,13 +23,13 @@ namespace System {
 
 enum class MEMORY_AREA
 {
-    UNKNOWN,
-    DEBUG,
-    STL,
-    SYSTEM,
-    GRAPHICS,
-    APPLICATION,
-    NUM,
+    UNKNOWN
+    , DEBUG
+    , STL
+    , SYSTEM
+    , GRAPHICS
+    , APPLICATION
+    , NUM
 };
 
 
