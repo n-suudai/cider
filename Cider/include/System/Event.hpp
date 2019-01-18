@@ -90,7 +90,7 @@ public:
         static_assert(!std::is_same_v<Event, ValueType>, "");
         static_assert(std::is_object_v<ValueType>, "<T> is object type.");
         static_assert(!std::is_pointer_v<ValueType>, "pointer type is not supported.");
-        static_assert(!std::is_base_of_v<EventBodyType, ContainerType>, "Container is not a base class of 'EventBody'.");
+        static_assert(std::is_base_of_v<EventBodyType, ContainerType>, "Container is not a base class of 'EventBody'.");
 
         m_body = STL::make_unique<ContainerType>(std::forward<T>(value));
     }
@@ -102,7 +102,7 @@ public:
         static_assert(!std::is_pointer_v<T>, "pointer type is not supported.");
         static_assert(std::is_object_v<T>, "<T> is object type.");
 
-        CIDER_ASSERT(m_body);
+        CIDER_ASSERT(m_body, "");
         return m_body && (m_body->HashCode() == Detail::EventHashCode<T>::Value);
     }
 
@@ -114,20 +114,20 @@ public:
         static_assert(!std::is_reference_v<T>, "reference type is not supported.");
         static_assert(!std::is_pointer_v<T>, "pointer type is not supported.");
         static_assert(std::is_object_v<T>, "<T> is object type.");
-        static_assert(!std::is_base_of_v<EventBodyType, ContainerType>, "Container is not a base class of 'EventBody'.");
+        static_assert(std::is_base_of_v<EventBodyType, ContainerType>, "Container is not a base class of 'EventBody'.");
 
-        CIDER_ASSERT(m_body);
+        CIDER_ASSERT(m_body, "");
 
         if (auto p = dynamic_cast<const ContainerType*>(m_body.get()))
         {
-            CIDER_ASSERT(Is<T>());
+            CIDER_ASSERT(Is<T>(), "");
             return &p->data;
         }
         return nullptr;
     }
 
 private:
-    STL::unique_ptr<Detail::EventBody> m_body;
+    STL::unique_ptr<EventBodyType> m_body;
 };
 
 
@@ -149,15 +149,15 @@ public:
 
     Connection Connect(const Slot<void(const EventType&)>& slot)
     {
-        CIDER_ASSERT(slot);
-        CIDER_ASSERT(m_signalBody);
+        CIDER_ASSERT(slot, "");
+        CIDER_ASSERT(m_signalBody, "");
         return Connection { m_signalBody->Connect(slot) };
     }
 
     Connection Connect(Slot<void(const EventType&)>&& slot)
     {
-        CIDER_ASSERT(slot);
-        CIDER_ASSERT(m_signalBody);
+        CIDER_ASSERT(slot, "");
+        CIDER_ASSERT(m_signalBody, "");
         return Connection { m_signalBody->Connect(slot) };
     }
 
@@ -175,7 +175,7 @@ public:
 
     void Emit()
     {
-        CIDER_ASSERT(m_signalBody);
+        CIDER_ASSERT(m_signalBody, "");
 
         std::vector<EventType> notifications;
         {
