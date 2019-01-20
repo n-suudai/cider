@@ -1,3 +1,0 @@
-LIBRARY CiderWin32Shared
-EXPORTS
-    Cider_Hello @1

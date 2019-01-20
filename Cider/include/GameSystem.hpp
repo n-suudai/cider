@@ -1,7 +1,6 @@
 ﻿#pragma once
 
 #include "System/Event.hpp"
-#include "System/Log.hpp"
 
 
 namespace Cider {
@@ -38,104 +37,43 @@ public:
 
     virtual Void HandleEvent(const System::SystemEvent&) {}
 
+    virtual const Char* GetComponentName() const { return "Component"; }
+
 protected:
     STL::weak_ptr<Entity> m_ownerEntity;
 };
 
 
-class TestComponentA : public Component
-{
-public:
-    TestComponentA() = default;
-    ~TestComponentA() = default;
-
-    virtual Void HandleEvent(const System::SystemEvent& eventObject) override
-    {
-        if (eventObject.Is<OnStart>())
-        {
-            System::Log::Message(
-                System::Log::Verbose,
-                "TestComponentA => OnStart"
-            );
-        }
-        else if (eventObject.Is<OnDestroy>())
-        {
-            System::Log::Message(
-                System::Log::Verbose,
-                "TestComponentA => OnDestroy"
-            );
-        }
-        else if (auto onUpdate = eventObject.As<OnUpdate>())
-        {
-            System::Log::Format(
-                System::Log::Verbose,
-                "TestComponentA => OnUpdate{ deltaTime=%lf }",
-                onUpdate->deltaTime
-            );
-        }
-    }
-};
+// for user
+STL::shared_ptr<Component> CreateUserComponent(const Char* componentName);
 
 
 class ComponentManager
 {
 public:
-    static ComponentManager* Instance()
-    {
-        static ComponentManager instance;
-        return &instance;
-    }
+    static ComponentManager* Instance();
 
 public:
     ComponentManager() = default;
 
     ~ComponentManager() = default;
 
-    STL::shared_ptr<Component> CreateComponent()
-    {
-        auto component = STL::make_shared<TestComponentA>();
+    STL::shared_ptr<Component> CreateComponent(const Char* componentName);
 
-        m_components.push_back(component);
-
-        return component;
-    }
-
-    Void DestroyComponent(const STL::shared_ptr<Component>& destroyComponent)
-    {
-        CIDER_ASSERT(destroyComponent, "");
-
-        m_components.erase(
-            std::find_if(
-                std::begin(m_components),
-                std::end(m_components),
-                [&destroyComponent](const STL::shared_ptr<Component>& component)->Bool {
-            return component.get() == destroyComponent.get();
-        }
-            ),
-            std::end(m_components)
-            );
-    }
+    Void DestroyComponent(const STL::shared_ptr<Component>& destroyComponent);
 
 private:
-    std::vector<STL::shared_ptr<Component>> m_components;
+    typedef std::vector<STL::shared_ptr<Component>> ComponentArrayType;
+    typedef std::map<const Char*, ComponentArrayType> ComponentTable;
+
+    ComponentTable m_componentTable;
 };
 
 
 class Entity : public System::BaseAllocator<System::MEMORY_AREA::SYSTEM>
 {
 public:
-    Entity()
-    {
-        m_eventConnection = m_eventQueue.Connect(
-            [this](const System::SystemEvent& eventObject) {
-            for (auto& component : m_componentList)
-            {
-                CIDER_ASSERT(component, "");
-                component->HandleEvent(eventObject);
-            }
-        }
-        );
-    }
+    Entity();
 
     ~Entity() = default;
 
@@ -145,29 +83,11 @@ public:
         m_eventQueue.Enqueue<T>(std::forward<T>(eventData));
     }
 
-    Void DispatchEvent()
-    {
-        m_eventQueue.Emit();
-    }
+    Void DispatchEvent();
 
-    Void RegisterComponent(const Char*)
-    {
-        m_componentList.push_back(
-            ComponentManager::Instance()->CreateComponent()
-        );
-    }
+    Void RegisterComponent(const Char* componentName);
 
-    Void UnregisterComponent(const Char*)
-    {
-        if (!m_componentList.empty())
-        {
-            auto destroyComponent = m_componentList.front();
-
-            m_componentList.pop_front();
-
-            ComponentManager::Instance()->DestroyComponent(destroyComponent);
-        }
-    }
+    Void UnregisterComponent(const Char* componentName);
 
 private:
     System::ScopedConnection                m_eventConnection;
@@ -179,16 +99,10 @@ private:
 class EntityManager
 {
 public:
-    static EntityManager* Instance()
-    {
-        static EntityManager instance;
-        return &instance;
-    }
+    static EntityManager* Instance();
 
 public:
-    EntityManager()
-        : m_nextEntityId(1)
-    {}
+    EntityManager();
 
     ~EntityManager() = default;
 
@@ -214,81 +128,18 @@ public:
         }
     }
 
-    Void DispatchEvent()
-    {
-        for (auto& entityPair : m_entityTable)
-        {
-            CIDER_ASSERT(entityPair.second, "");
-            entityPair.second->DispatchEvent();
-        }
+    Void DispatchEvent();
 
-        ApplyDestroyEntityIds();
-    }
+    UInt64 CreateEntity();
 
-    UInt64 CreateEntity()
-    {
-        UInt64 entityId = m_nextEntityId;
-        m_nextEntityId++;
+    void DestroyEntity(UInt64 entityId);
 
-        auto entity = STL::make_shared<Entity>();
+    Void RegisterComponent(UInt64 entityId, const Char* componentName);
 
-        m_entityTable.insert(
-            EntityTableType::value_type(
-                entityId,
-                entity
-            )
-        );
-
-        entity->PostEvent(OnStart{});
-
-        return entityId;
-    }
-
-    void DestroyEntity(UInt64 entityId)
-    {
-        auto entityIt = m_entityTable.find(entityId);
-
-        if (entityIt != std::end(m_entityTable))
-        {
-            CIDER_ASSERT((*entityIt).second, "");
-            (*entityIt).second->PostEvent(OnDestroy{});
-
-            m_destroyEntityIds.push_back((*entityIt).first);
-        }
-    }
-
-    Void RegisterComponent(UInt64 entityId, const Char* componentName)
-    {
-        auto entityIt = m_entityTable.find(entityId);
-
-        if (entityIt != std::end(m_entityTable))
-        {
-            CIDER_ASSERT((*entityIt).second, "");
-            (*entityIt).second->RegisterComponent(componentName);
-        }
-    }
-
-    Void UnregisterComponent(UInt64 entityId, const Char* componentName)
-    {
-        auto entityIt = m_entityTable.find(entityId);
-
-        if (entityIt != std::end(m_entityTable))
-        {
-            CIDER_ASSERT((*entityIt).second, "");
-            (*entityIt).second->UnregisterComponent(componentName);
-        }
-    }
+    Void UnregisterComponent(UInt64 entityId, const Char* componentName);
 
 private:
-    void ApplyDestroyEntityIds()
-    {
-        for (auto destroyEntityId : m_destroyEntityIds)
-        {
-            m_entityTable.erase(destroyEntityId);
-        }
-
-        m_destroyEntityIds.clear();
-    }
+    void ApplyDestroyEntityIds();
 
 private:
     typedef STL::map<UInt64, STL::shared_ptr<Entity>> EntityTableType;

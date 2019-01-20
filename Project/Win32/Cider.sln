@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CiderWin32Static", "CiderWin32Static\CiderWin32Static.vcxproj", "{8F8010DD-669B-446B-B36E-F3B1BD7F2661}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CiderWin32", "CiderWin32\CiderWin32.vcxitems", "{6F90B8E8-ED4E-4033-A485-342ED1A422D2}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CiderWin32Shared", "CiderWin32Shared\CiderWin32Shared.vcxproj", "{C38C764E-B197-4B3B-90DD-26F7334C3EA0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{071BA416-2FFA-4F80-A7BD-6E9DEDE7E1F9}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CiderWin32Static_Test", "CiderWin32Static_Test\CiderWin32Static_Test.vcxproj", "{84278414-4C4E-46A7-B6C2-0091F96479E7}"
@@ -16,17 +12,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CiderWin32Static_Test", "Ci
 		{8F8010DD-669B-446B-B36E-F3B1BD7F2661} = {8F8010DD-669B-446B-B36E-F3B1BD7F2661}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CiderWin32Shared_Test", "CiderWin32Shared_Test\CiderWin32Shared_Test.vcxproj", "{1776211C-E943-4B49-9A2A-017B5713D563}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0} = {C38C764E-B197-4B3B-90DD-26F7334C3EA0}
-	EndProjectSection
-EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		CiderWin32\CiderWin32.vcxitems*{6f90b8e8-ed4e-4033-a485-342ed1a422d2}*SharedItemsImports = 9
-		CiderWin32\CiderWin32.vcxitems*{8f8010dd-669b-446b-b36e-f3b1bd7f2661}*SharedItemsImports = 4
-		CiderWin32\CiderWin32.vcxitems*{c38c764e-b197-4b3b-90dd-26f7334c3ea0}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
@@ -42,14 +28,6 @@ Global
 		{8F8010DD-669B-446B-B36E-F3B1BD7F2661}.Release|x64.Build.0 = Release|x64
 		{8F8010DD-669B-446B-B36E-F3B1BD7F2661}.Release|x86.ActiveCfg = Release|Win32
 		{8F8010DD-669B-446B-B36E-F3B1BD7F2661}.Release|x86.Build.0 = Release|Win32
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0}.Debug|x64.ActiveCfg = Debug|x64
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0}.Debug|x64.Build.0 = Debug|x64
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0}.Debug|x86.ActiveCfg = Debug|Win32
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0}.Debug|x86.Build.0 = Debug|Win32
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0}.Release|x64.ActiveCfg = Release|x64
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0}.Release|x64.Build.0 = Release|x64
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0}.Release|x86.ActiveCfg = Release|Win32
-		{C38C764E-B197-4B3B-90DD-26F7334C3EA0}.Release|x86.Build.0 = Release|Win32
 		{84278414-4C4E-46A7-B6C2-0091F96479E7}.Debug|x64.ActiveCfg = Debug|x64
 		{84278414-4C4E-46A7-B6C2-0091F96479E7}.Debug|x64.Build.0 = Debug|x64
 		{84278414-4C4E-46A7-B6C2-0091F96479E7}.Debug|x86.ActiveCfg = Debug|Win32
@@ -58,21 +36,12 @@ Global
 		{84278414-4C4E-46A7-B6C2-0091F96479E7}.Release|x64.Build.0 = Release|x64
 		{84278414-4C4E-46A7-B6C2-0091F96479E7}.Release|x86.ActiveCfg = Release|Win32
 		{84278414-4C4E-46A7-B6C2-0091F96479E7}.Release|x86.Build.0 = Release|Win32
-		{1776211C-E943-4B49-9A2A-017B5713D563}.Debug|x64.ActiveCfg = Debug|x64
-		{1776211C-E943-4B49-9A2A-017B5713D563}.Debug|x64.Build.0 = Debug|x64
-		{1776211C-E943-4B49-9A2A-017B5713D563}.Debug|x86.ActiveCfg = Debug|Win32
-		{1776211C-E943-4B49-9A2A-017B5713D563}.Debug|x86.Build.0 = Debug|Win32
-		{1776211C-E943-4B49-9A2A-017B5713D563}.Release|x64.ActiveCfg = Release|x64
-		{1776211C-E943-4B49-9A2A-017B5713D563}.Release|x64.Build.0 = Release|x64
-		{1776211C-E943-4B49-9A2A-017B5713D563}.Release|x86.ActiveCfg = Release|Win32
-		{1776211C-E943-4B49-9A2A-017B5713D563}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{84278414-4C4E-46A7-B6C2-0091F96479E7} = {071BA416-2FFA-4F80-A7BD-6E9DEDE7E1F9}
-		{1776211C-E943-4B49-9A2A-017B5713D563} = {071BA416-2FFA-4F80-A7BD-6E9DEDE7E1F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7C72FCCB-8A11-4F7B-9F62-3B47715472A8}

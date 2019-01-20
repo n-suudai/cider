@@ -1,12 +1,8 @@
 ﻿
 #include "Cider.hpp"
-#pragma comment(lib, "CiderWin32Static.lib")
-
 
 #include <tchar.h>
 #include <Windows.h>
-
-
 
 
 int APIENTRY _tWinMain(
@@ -33,7 +29,7 @@ int APIENTRY _tWinMain(
     auto entityId = entityManager->CreateEntity();
 
     // コンポーネントの登録
-    entityManager->RegisterComponent(entityId, "");
+    entityManager->RegisterComponent(entityId, "TestComponentA");
 
     // 更新イベントの発行
     entityManager->BroadcastEvent(Cider::GameSystem::OnUpdate { 0.0 });

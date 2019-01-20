@@ -1,2 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{d44742f2-bc1a-46f9-8b6f-a611faa00685}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{720a0d8a-815e-478b-b4de-9ea2a21f0a0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\System">
+      <UniqueIdentifier>{1d07a394-c877-452c-8a6a-ea8187089071}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\GUI">
+      <UniqueIdentifier>{a1aabe60-7ad7-4ee4-b7f3-bd1797078512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\System">
+      <UniqueIdentifier>{41b5562e-1707-4a2b-9070-457e664d8b7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\System\Win32">
+      <UniqueIdentifier>{9bf200b5-167f-4fa7-a003-70a18958d9c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\External">
+      <UniqueIdentifier>{dab1c942-ed02-46d2-b7bb-c09f8a68d502}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Cider\include\Cider.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\GameSystem.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\Graphics.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\Api.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\Assert.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\DebugBreak.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\Event.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\KeyCode.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\Log.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\Memory.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\Signals.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\StackTrace.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\STL.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\System\Types.hpp">
+      <Filter>include\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\include\GUI\Window.hpp">
+      <Filter>include\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Cider\source\System\Win32\Win32Prerequisites.hpp">
+      <Filter>source\System\Win32</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Cider\source\Cider.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Cider\source\System\Assert.cpp">
+      <Filter>source\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Cider\source\System\Memory.cpp">
+      <Filter>source\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Cider\source\System\Win32\Log_Win32.cpp">
+      <Filter>source\System\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Cider\source\System\Win32\StackTrace_Win32.cpp">
+      <Filter>source\System\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Cider\source\External\dlmalloc.cpp">
+      <Filter>source\External</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Cider\source\GameSystem.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Cider\source\System\Win32\Main_Win32.cpp">
+      <Filter>source\System\Win32</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

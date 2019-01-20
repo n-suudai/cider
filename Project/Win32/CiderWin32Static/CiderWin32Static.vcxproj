@@ -55,9 +55,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared">
-    <Import Project="..\CiderWin32\CiderWin32.vcxitems" Label="Shared" />
-  </ImportGroup>
+  <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\Properties\Cider.props" />
@@ -136,6 +134,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Cider\include\Cider.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\GameSystem.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\Graphics.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\GUI\Window.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\Api.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\Assert.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\DebugBreak.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\Event.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\KeyCode.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\Log.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\Memory.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\Signals.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\StackTrace.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\STL.hpp" />
+    <ClInclude Include="..\..\..\Cider\include\System\Types.hpp" />
+    <ClInclude Include="..\..\..\Cider\source\System\Win32\Win32Prerequisites.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Cider\source\Cider.cpp" />
+    <ClCompile Include="..\..\..\Cider\source\External\dlmalloc.cpp" />
+    <ClCompile Include="..\..\..\Cider\source\GameSystem.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Cider\source\System\Assert.cpp" />
+    <ClCompile Include="..\..\..\Cider\source\System\Memory.cpp" />
+    <ClCompile Include="..\..\..\Cider\source\System\Win32\Log_Win32.cpp" />
+    <ClCompile Include="..\..\..\Cider\source\System\Win32\Main_Win32.cpp" />
+    <ClCompile Include="..\..\..\Cider\source\System\Win32\StackTrace_Win32.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
