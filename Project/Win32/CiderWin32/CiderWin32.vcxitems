@@ -18,6 +18,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\GameSystem.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\Graphics.hpp">
       <SubType>
       </SubType>

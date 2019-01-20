@@ -31,6 +31,12 @@
     <Filter Include="include\GUI">
       <UniqueIdentifier>{6c2d04e0-eaee-445c-bcbb-8cfd72678cca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\GameSystem">
+      <UniqueIdentifier>{5e69492d-0f92-4a5b-9c12-9376e78e2970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\GameSystem">
+      <UniqueIdentifier>{4310d9e3-9fe8-4f42-b47d-310ed9907e5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\..\Cider\source\CiderShared.cpp">
@@ -107,5 +113,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\GUI\Window.hpp">
       <Filter>include\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\GameSystem.hpp" />
   </ItemGroup>
 </Project>

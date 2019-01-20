@@ -3,6 +3,7 @@
 
 
 #include "System.hpp"
+#include "GameSystem.hpp"
 
 
 namespace Cider {
