@@ -113,6 +113,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\GUI\Window.hpp">
       <Filter>include\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\GameSystem.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\..\Cider\include\GameSystem.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
